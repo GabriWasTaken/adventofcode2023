@@ -6,9 +6,14 @@ function DayList() {
   const navigate = useNavigate();
 
   return (
-    <CButton color="primary" onClick={() => navigate(`/1`)}>
-      Day 1
-    </CButton>
+    <>
+      <CButton color="primary" onClick={() => navigate(`/1`)}>
+        Day 1
+      </CButton>
+      <CButton color="primary" onClick={() => navigate(`/2`)}>
+        Day 2
+      </CButton>
+    </>
   );
 }
 
