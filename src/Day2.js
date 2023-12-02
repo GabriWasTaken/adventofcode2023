@@ -124,6 +124,8 @@ function Day2() {
           return acc + current;
         });
 
+        setPart2Res(sumThePower);
+
         console.log(sumThePower);
       });
   };
