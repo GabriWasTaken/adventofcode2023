@@ -13,6 +13,9 @@ function DayList() {
       <CButton color="primary" onClick={() => navigate(`/2`)}>
         Day 2
       </CButton>
+      <CButton color="primary" onClick={() => navigate(`/3`)}>
+        Day 3
+      </CButton>
     </>
   );
 }
