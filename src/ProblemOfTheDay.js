@@ -4,6 +4,7 @@ import Day1 from "./Day1";
 import Day2 from "./Day2";
 import Day3 from "./Day3";
 import Day4 from "./Day4";
+import Day5 from './Day5';
 
 function ProblemOfTheDay() {
   const location = useLocation();
@@ -18,6 +19,8 @@ function ProblemOfTheDay() {
       return <Day3 />;
     case "/4":
       return <Day4 />;
+      case "/5":
+        return <Day5 />;
     default:
       return <></>;
   }
