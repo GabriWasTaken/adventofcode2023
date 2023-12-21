@@ -36,6 +36,33 @@ function Day9() {
     }
   };
 
+  const calculateSequenceOfDifferencePart2 = (rowValues, index) => {
+    console.log(rowValues);
+    const calculateUp = (arr, lastNum, index) => {
+      if (prevNum === undefined) {
+        lastNum -= arr[arr.length - 1];
+      } else {
+        lastNum -= prevNum;
+      }
+      prevNum = lastNum;
+      results[index] = lastNum;
+      console.log(prevNum);
+    };
+
+    const differenceArray = [];
+    let founded = false;
+    const someIsNotZero = rowValues.some((item) => Number(item) !== 0);
+    if (someIsNotZero) {
+      for (let i = rowValues.length - 1; i > 0; i--) {
+        differenceArray.push(Number(rowValues[i]) - Number(rowValues[i - 1]));
+      }
+      const solution = differenceArray.reverse();
+      calculateSequenceOfDifferencePart2(solution, index);
+      lastNum = rowValues[0];
+      calculateUp(solution, Number(lastNum), index);
+    }
+  };
+
   const calculatePart1 = () => {
     fetch(raw)
       .then((r) => r.text())
@@ -57,7 +84,26 @@ function Day9() {
       });
   };
 
-  const calculatePart2 = () => {};
+  const calculatePart2 = () => {
+    fetch(raw)
+      .then((r) => r.text())
+      .then((text) => {
+        const array = text.toString().split("\r\n");
+        array.forEach((rowValues, index) => {
+          const values = rowValues.split(" ");
+          lastNum = 0;
+          prevNum = 0;
+          calculateSequenceOfDifferencePart2(values, index);
+        });
+        console.log(results);
+
+        const sum = results.reduce((acc, current) => {
+          return Number(acc) + Number(current);
+        });
+
+        console.log(sum);
+      });
+  };
 
   return (
     <>
