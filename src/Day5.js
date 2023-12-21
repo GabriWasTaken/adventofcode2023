@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { CButton } from "@coreui/react";
 import raw from "./assets/day5Input.txt";
-import { first } from "lodash";
 
 function Day5() {
   const [part1Res, setPart1Res] = useState();
